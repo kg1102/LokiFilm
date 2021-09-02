@@ -1,0 +1,424 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ====================================================================== */
+/* =============================== Fontes =============================== */
+/* ====================================================================== */
+@font-face {
+    font-family: B612-Bold;
+    src: url('./Fonts/B612-Bold.ttf');
+}
+
+@font-face {
+    font-family: B612-Regular;
+    src: url('./Fonts/B612-Regular.ttf');
+}
+
+@font-face {
+    font-family: B612-Bold;
+    src: url('./Fonts/B612-Bold.ttf');
+}
+/* ============================== Fim Fontes ============================== */
+
+
+.App {
+    max-width:100%;
+    height: 100vh;
+    background: url('./Images/fundo.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    filter: brightness(0.7);
+}
+
+
+.App::after {
+    content: '\A';
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 0px 4px white;
+}
+
+.container h3 {
+    font-size: 1.5rem;
+    font-family: B612-Regular;
+    padding: 3rem;
+    text-shadow: 0 0 4px white;
+}
+
+.container h1 {
+    font-size: 6rem;
+    font-family: B612-Bold;
+    padding-bottom: 4rem;
+    text-shadow: 0 0 4px white;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper__image {
+    border-radius: 15px;
+    max-width: 230px;
+    margin-right: 20px;
+}
+
+.details {
+    max-width: 700px;
+}
+
+.description {
+    font-size: 1.24rem;
+    font-family: B612-Regular;
+    text-align: left;
+    justify-self: left;
+    margin-left: 60px;
+}
+
+.infos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.timer {
+    font-family: B612-Bold;
+    font-size: 30px;
+}
+
+.timer::before {
+    content: '';
+    position: relative;
+    top: 7px;
+    display: inline-block;
+    height: 30px;
+    width: 50px;
+    background: url('./Images/clock.svg') no-repeat center;
+    background-size: 100% 100%;
+    padding-left: 15px;
+}
+
+.year {
+    font-family: B612-Bold;
+    font-size: 30px;
+}
+
+/* ====================================================================== */
+/* =============================== Botões =============================== */
+/* ====================================================================== */
+
+.button {
+    position: relative;
+    top: -52px;
+    left: -10px;
+}
+
+.button__watch {
+    width: 200px;
+    height: 50px;
+    background-color: #0072d2;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-family: B612-Bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 20px;
+}
+
+.button__trailer {
+    width: 120px;
+    height: 50px;
+    border: 2px solid #fff;
+    background-color: #131318;
+    color: white;
+    font-family: B612-Bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+}
+/* ============================== Fim Botões ============================== */
+
+
+/* ===================================================================== */
+/* ============================== Trailer ============================== */
+/* ===================================================================== */
+.modal {
+    width: 1200px;
+    height: 700px;
+    backdrop-filter: blur(1px) saturate(100%);
+    -webkit-backdrop-filter: blur(1px) saturate(100%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 20px;
+    transition: 1s;
+}
+
+.modal {
+    top: -100%;
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal__close {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    font-size: 30px;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal__close:hover {
+    transform: scale(1.5);
+    color: #DDD;
+}
+
+.modal__video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__video video {
+    width: 95%;
+    outline: none;
+}
+
+/* ============================== Fim Trailer ============================== */
+
+
+/* ===================================================================== */
+/* =========================== Responsividade ========================== */
+/* ===================================================================== */
+
+@media screen and (max-width:1180px) {
+    .modal__video {
+        max-width: 500px;
+    }
+    
+    .modal__video video {
+        width: 100%;
+        outline: none;
+    }
+    .modal {
+        width: 600px;
+        height: 350px;
+    }
+    .modal {
+        top: -5rem;
+    }
+}
+
+@media screen and(max-width: 850px) {
+    .modal {
+        width: 100%;
+        height: 85vh;
+    }
+}
+
+@media screen and (max-width: 818px) {
+
+    .App {
+        max-width: 100%;
+        background: url('./Images/fundo.jpg') no-repeat center center;
+    }
+
+    .button {
+        position: relative;
+        top: 2rem;
+        left: -10px;
+    }
+    .timer {
+        font-size: 1.2rem;
+    }
+    .wrapper {
+        display: inherit;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .wrapper__image {
+        border-radius: 5px;
+        margin-right: 25px;
+    }
+
+    .modal__video {
+        max-width: 500px;
+    }
+    
+    .modal__video video {
+        width: 100%;
+        outline: none;
+    }
+    .modal {
+        width: 600px;
+        height: 350px;
+    }
+    .modal {
+        top: -10rem;
+    }
+
+    .container h3 {
+        font-size: 1rem;
+        font-family: B612-Regular;
+        padding: 0.2rem;
+        text-shadow: 0 0 4px white;
+    }
+    
+    .container h1 {
+        font-size: 5rem;
+        font-family: B612-Bold;
+        padding-bottom: 1rem;
+        text-shadow: 0 0 4px white;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        font-family: B612-Regular;
+        text-align: left;
+        justify-self: left;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width:567px){
+    .modal__video {
+        max-width: 500px;
+    }
+    
+    .modal__video video {
+        width: 100%;
+        outline: none;
+    }
+
+    .App {
+        max-width: 100%;
+        background: url('./Images/fundo.jpg') no-repeat center center;
+    }
+
+    .modal {
+        width: 450px;
+        height: 350px;
+    }
+    .modal {
+        top: -15rem;
+    }
+
+    .container h3 {
+        font-size: 1rem;
+        font-family: B612-Regular;
+        padding: 0.5rem;
+        text-shadow: 0 0 4px white;
+    }
+    
+    .container h1 {
+        font-size: 4rem;
+        font-family: B612-Bold;
+        padding-bottom: 1rem;
+        text-shadow: 0 0 4px white;
+    }
+
+}
+
+
+@media screen and (max-width: 430px) {
+    .button {
+        position: relative;
+        top: 2rem;
+        left: -10px;
+    }  
+    .timer {
+        font-size: 1.2rem;
+    }
+    .modal__video {
+        max-width: 275px;
+    }
+    
+    .App {
+        max-width: 100%;
+        background: url('./Images/fundo.jpg') no-repeat center center;
+    }
+
+    .modal__video video {
+        width: 100%;
+        outline: none;
+    }
+    .modal {
+        width: 370px;
+        height: 220px;
+    }
+    .modal {
+        top: -20rem;
+    }
+    .container h3 {
+        font-size: 1rem;
+        font-family: B612-Regular;
+        padding: 0.2rem;
+        text-shadow: 0 0 4px white;
+    }
+    
+    .container h1 {
+        font-size: 5rem;
+        font-family: B612-Bold;
+        padding-bottom: 1rem;
+        text-shadow: 0 0 4px white;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        font-family: B612-Regular;
+        text-align: left;
+        justify-self: left;
+        margin-left: 10px;
+    }
+    .infos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 700px;
+        margin-left: 1px;
+        margin-top: 30px;
+    }
+    .wrapper__image {
+        margin-left: 35px;
+    }
+}
+
+/* ============================== Fim Responsividades ============================== */
